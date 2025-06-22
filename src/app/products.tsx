@@ -19,13 +19,14 @@ const ProductsList = () => {
                          /> 
                          <div
                           className='
-                          border  rounded-2xl  border-Red 
-                           py-1.5 w-30 bg-white 
-                           text-Red text-xs
-                           flex justify-center items-center gap-2 
-                           relative bottom-4 left-7
+                          cursor-pointer
+                          border rounded-2xl  border-Red 
+                          py-1.5 w-30 bg-white 
+                          text-Red text-xs
+                          flex justify-center items-center gap-2 
+                          relative bottom-4 left-7
                           '> 
- <Image
+                <Image
                   src="/assets/images/icon-add-to-cart.svg"
                    alt={product.name}
                    width={20}
