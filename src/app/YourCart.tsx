@@ -26,11 +26,13 @@ const YourCart = () => {
 
         {cart.map((product, index) => (
                    <div key={index} className="">
-                   
-                
-                            <h3 className='text-xs font-extralight '>{product.category}</h3>
                             <h2 className='text-sm font-semibold '>{product.name}</h2>
-                            <p className='font-semibold text-sm text-Red'>${product.price.toFixed(2)}</p>
+                            <div>
+                                <p>{product.amount}x</p>
+                            <p className='font-semibold text-sm text-Red'>@ ${product.price.toFixed(2)}</p>
+                            <p>{product.amount * product.price}</p>
+
+                            </div>
                    
                    
                    </div>

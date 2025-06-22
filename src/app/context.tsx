@@ -38,7 +38,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const addToCart = (product: Product) => {
 
   if (!cart.some((item) => item.name === product.name)) {
-    setCart((prev) => [...prev, product]);
+    setCart((prev) => [...prev, { ...product, amount: 1 } ]);
   }
   };
   const increaseAmount = (product: Product) => {
