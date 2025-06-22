@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const YourCart = () => {
   return (
-    <div className='bg-white rounded-xl h-fit w-80 px-3 pt-3 pb-9 flex flex-col gap-5'>
+    <div className='bg-white rounded-xl h-fit w-76 px-3 pt-3 pb-11 flex flex-col gap-5'>
      <h1 className='font-bold text-xl text-Red text-start'>  Your Cart (0) </h1>
      <div className='flex flex-col items-center justify-center'>
                     <Image
