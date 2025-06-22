@@ -39,7 +39,7 @@ const ProductsList = () => {
             <div className='text-start '>
                     <h3 className='text-xs font-extralight '>{product.category}</h3>
                     <h2 className='text-sm font-semibold '>{product.name}</h2>
-                    <p className='font-medium text-Red'>${product.price.toFixed(2)}</p>
+                    <p className='font-semibold text-sm text-Red'>${product.price.toFixed(2)}</p>
             </div>
            
            </div>
