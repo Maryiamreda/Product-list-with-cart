@@ -1,8 +1,17 @@
-import React from 'react';
+"use client";
+
+import React, { useContext } from 'react';
 import { Products } from "@/data";
 import Image from "next/image";
+import { CartContext } from './context';
 
 const ProductsList = () => {
+  const context = useContext(CartContext);
+ if (!context) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+    const { addToCart } = context;
+
   return (
      <div className="">
         <h1 className='font-bold text-3xl text-start mb-5 '>  Desserts</h1>
@@ -25,13 +34,16 @@ const ProductsList = () => {
                           text-Red text-xs
                           flex justify-center items-center gap-2 
                           relative bottom-4 left-7
-                          '> 
+                          '
+                           onClick={() => addToCart(product)}
+                          > 
                 <Image
                   src="/assets/images/icon-add-to-cart.svg"
                    alt={product.name}
                    width={20}
                   height={20}
                className="border rounded  "
+
                          /> 
                           Add To Cart
                           </div>  
