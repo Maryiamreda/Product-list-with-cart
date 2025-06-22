@@ -10,7 +10,7 @@ const ProductsList = () => {
  if (!context) {
     throw new Error('useCart must be used within a CartProvider');
   }
-    const { addToCart } = context;
+    const { addToCart ,cart } = context;
 
   return (
      <div className="">
@@ -26,6 +26,44 @@ const ProductsList = () => {
                   height={180}
                className="border rounded  "
                          /> 
+
+{cart.some((item) => item.name === product.name) ?
+  
+               <div
+                          className='
+                          cursor-pointer
+                          border rounded-2xl  border-Red 
+                          py-1.5 w-30 bg-Red 
+                          text-white text-xs
+                          flex justify-between
+                          relative bottom-4 left-7
+                          '
+                          
+                          > 
+                           
+                <div className='border-2 border-white rounded-full flex items-center '>
+                    <Image
+                  src="/assets/images/icon-decrement-quantity.svg"
+                   alt={product.name}
+                   width={12}
+                  height={10}
+                   className="border rounded  " /> 
+               </div>
+                          <p>{cart.find((item) => item.name === product.name)?.amount}   </p>
+                          <div className='border-2 border-white rounded-full flex items-center '>
+                             <Image
+                  src="/assets/images/icon-increment-quantity.svg"
+                   alt={product.name}
+                   width={10}
+                  height={10}
+               className="border rounded  "
+
+                         /> 
+               
+                          </div>
+                          
+                       </div>  
+:  
                          <div
                           className='
                           cursor-pointer
@@ -46,7 +84,9 @@ const ProductsList = () => {
 
                          /> 
                           Add To Cart
-                          </div>  
+                          </div>  }
+
+                     
             </div>
             <div className='text-start '>
                     <h3 className='text-xs font-extralight '>{product.category}</h3>
