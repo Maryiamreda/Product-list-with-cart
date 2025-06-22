@@ -22,22 +22,23 @@ const YourCart = () => {
                     /> 
                               <p className='text-Rose-500 text-xs font-semibold'>  Your added items will appear here</p>
      </div>: 
-     <div>
+     <div className='flex flex-col gap-5'>
 
         {cart.map((product, index) => (
                    <div key={index} className="">
-                            <h2 className='text-sm font-semibold '>{product.name}</h2>
-                            <div>
-                                <p>{product.amount}x</p>
-                            <p className='font-semibold text-sm text-Red'>@ ${product.price.toFixed(2)}</p>
-                            <p>{product.amount * product.price}</p>
+                            <h2 className='text-sm font-semibold  text-start'>{product.name}</h2>
+                            <div className='flex gap-2 pt-2 '>
+                            <p className='font-semibold text-sm text-Red'>{product.amount}x</p>
+                            <p className='  text-Rose-400 '><span className='text-xs'>@</span> ${product.price.toFixed(2)}</p>
+                            <p className='text-Rose-500 font-semibold'>${product.amount * product.price}</p>
 
                             </div>
                    
                    
                    </div>
                  ))}
-        </div>}
+        </div>
+        }
    
     
     </div>
