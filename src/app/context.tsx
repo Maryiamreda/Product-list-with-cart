@@ -51,8 +51,12 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCart(updatedCart);
   };
 const decreaseAmount = (product: Product) => {
+  console.log(product)
     const updatedCart = cart.map(item => {
-      if (item.name === product.name && product.amount>1) {
+      
+      if (item.name === product.name &&item.amount>1 ) {
+       
+
         return { ...item, amount: item.amount - 1 };
       }
       return item;

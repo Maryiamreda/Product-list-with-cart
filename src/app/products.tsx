@@ -10,7 +10,7 @@ const ProductsList = () => {
  if (!context) {
     throw new Error('useCart must be used within a CartProvider');
   }
-    const { addToCart ,cart } = context;
+    const { addToCart ,cart ,decreaseAmount , increaseAmount } = context;
 
   return (
      <div className="">
@@ -33,7 +33,7 @@ const ProductsList = () => {
                           className='
                           cursor-pointer
                           border rounded-2xl  border-Red 
-                          py-1.5 w-30 bg-Red 
+                          py-1.5 px-1 w-30 bg-Red 
                           text-white text-xs
                           flex justify-between
                           relative bottom-4 left-7
@@ -41,25 +41,28 @@ const ProductsList = () => {
                           
                           > 
                            
-                <div className='border-2 border-white rounded-full flex items-center '>
-                    <Image
+                <div className='border-1 border-white rounded-full flex justify-center items-center w-4 h-4 '
+                                  onClick={()=>decreaseAmount(product)}
+
+                >
+                  <Image
                   src="/assets/images/icon-decrement-quantity.svg"
                    alt={product.name}
-                   width={12}
+                   width={11}
                   height={10}
                    className="border rounded  " /> 
                </div>
-                          <p>{cart.find((item) => item.name === product.name)?.amount}   </p>
-                          <div className='border-2 border-white rounded-full flex items-center '>
+                 <p>{cart.find((item) => item.name === product.name)?.amount}   </p>
+                  <div className='border-1 border-white rounded-full flex justify-center items-center w-4 h-4 '
+                  onClick={()=>increaseAmount(product)}
+                  >
                              <Image
-                  src="/assets/images/icon-increment-quantity.svg"
-                   alt={product.name}
-                   width={10}
-                  height={10}
-               className="border rounded  "
-
+                       src="/assets/images/icon-increment-quantity.svg"
+                         alt={product.name}
+                       width={10}
+                      height={10}
+                        className="border rounded  "
                          /> 
-               
                           </div>
                           
                        </div>  
