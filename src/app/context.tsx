@@ -27,6 +27,8 @@ type CartContextType = {
   increaseAmount:(product: Product) => void;
     decreaseAmount:(product: Product) => void;
 removeFromCart:(product: Product) => void;
+
+
 };
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -80,7 +82,7 @@ const decreaseAmount = (product: Product) => {
 };
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart  , decreaseAmount , increaseAmount , removeFromCart , modal , showModal}}>
+    <CartContext.Provider value={{ cart, setCart, addToCart  , decreaseAmount , increaseAmount , removeFromCart , modal , showModal }}>
       {children}
     </CartContext.Provider>
   );

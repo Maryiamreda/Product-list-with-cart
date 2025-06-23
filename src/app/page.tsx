@@ -12,7 +12,7 @@ export default function Home() {
     throw new Error('useCart must be used within a CartProvider');
   }
 
-  const { modal, showModal, cart } = context;
+  const { modal, showModal, cart ,setCart } = context;
 
   return (
     <div className="flex gap-10">
@@ -72,9 +72,11 @@ export default function Home() {
 
             <div
               className="rounded-full bg-Red text-white text-sm py-2.5 mt-4 cursor-pointer"
-              onClick={() => showModal(false)}
+              onClick={() => {
+                setCart([])
+                showModal(false)}}
             >
-              Confirm Order
+              Start New Order
             </div>
           </div>
         </div>
