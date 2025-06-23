@@ -15,13 +15,13 @@ export default function Home() {
   const { modal, showModal, cart ,setCart } = context;
 
   return (
-    <div className="flex gap-10">
+    <div className="md:flex gap-10 ">
       <ProductsList />
       <YourCart />
 
       {modal && (
         <div className="modal-overlay ">
-          <div className="bg-white p-6 rounded shadow-md text-center w-[35%] ">
+          <div className="bg-white p-6 rounded shadow-md text-center md:w-[35%] ">
               <Image
                 src="/assets/images/icon-order-confirmed.svg"
                 alt="icon-order-confirmed"
