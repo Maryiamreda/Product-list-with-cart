@@ -44,3 +44,6 @@ h3{
 .icon-hover-red:hover div{
   filter: invert(30%) sepia(93%) saturate(3868%) hue-rotate(356deg) brightness(100%) contrast(150%);
 }
+.icon-hover-black:hover {
+  filter: brightness(0) saturate(100%);
+}
