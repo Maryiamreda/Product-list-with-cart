@@ -23,7 +23,7 @@ type CartContextType = {
   addToCart: (product: Product) => void;
   increaseAmount:(product: Product) => void;
     decreaseAmount:(product: Product) => void;
-
+removeFromCart:(product: Product) => void;
 };
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -41,6 +41,13 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCart((prev) => [...prev, { ...product, amount: 1 } ]);
   }
   };
+
+
+const removeFromCart = (product: Product) => {
+const newcart=cart.filter((item)=>item.name!=product.name);
+setCart(newcart);
+  };
+
   const increaseAmount = (product: Product) => {
     const updatedCart = cart.map(item => {
       if (item.name === product.name) {
@@ -51,21 +58,24 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCart(updatedCart);
   };
 const decreaseAmount = (product: Product) => {
-  console.log(product)
-    const updatedCart = cart.map(item => {
-      
-      if (item.name === product.name &&item.amount>1 ) {
-       
+  const foundItem = cart.find(item => item.name === product.name);
 
-        return { ...item, amount: item.amount - 1 };
-      }
-      return item;
-    });
-    setCart(updatedCart);
-  };
+  if (foundItem) {
+    if (foundItem.amount > 1) {
+      const updatedCart = cart.map(item =>
+        item.name === product.name
+          ? { ...item, amount: item.amount - 1 }
+          : item
+      );
+      setCart(updatedCart);
+    } else {
+      removeFromCart(product);
+    }
+  }
+};
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart  , decreaseAmount , increaseAmount}}>
+    <CartContext.Provider value={{ cart, setCart, addToCart  , decreaseAmount , increaseAmount , removeFromCart}}>
       {children}
     </CartContext.Provider>
   );

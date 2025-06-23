@@ -41,28 +41,39 @@ const ProductsList = () => {
                           
                           > 
                            
-                <div className='border-1 border-white rounded-full flex justify-center items-center w-4 h-4 '
+                <div className='icon-hover-red border-1 border-white rounded-full flex justify-center items-center w-4 h-4  hover:bg-white '
                                   onClick={()=>decreaseAmount(product)}
 
                 >
-                  <Image
+
+
+                  <div>
+                      <Image
                   src="/assets/images/icon-decrement-quantity.svg"
                    alt={product.name}
                    width={11}
                   height={10}
-                   className="border rounded  " /> 
+                   className=" border rounded " /> 
+                  </div>
+                 
                </div>
                  <p>{cart.find((item) => item.name === product.name)?.amount}   </p>
-                  <div className='border-1 border-white rounded-full flex justify-center items-center w-4 h-4 '
+                  <div className='icon-hover-red border-1 border-white rounded-full flex justify-center items-center w-4 h-4  hover:bg-white '
                   onClick={()=>increaseAmount(product)}
                   >
-                             <Image
+
+<div>
+     <Image
                        src="/assets/images/icon-increment-quantity.svg"
                          alt={product.name}
                        width={10}
                       height={10}
-                        className="border rounded  "
+                        className= "border rounded "
                          /> 
+</div>
+
+
+                           
                           </div>
                           
                        </div>  
