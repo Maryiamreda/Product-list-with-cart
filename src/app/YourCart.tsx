@@ -7,8 +7,10 @@ const YourCart = () => {
      if (!context) {
         throw new Error('useCart must be used within a CartProvider');
       }
-        const { cart , removeFromCart } = context;
+        const { cart , removeFromCart , showModal} = context;
     
+
+
   return (
     <div className='bg-white rounded-xl h-fit w-76 px-3 pt-3 pb-11 flex flex-col gap-5'>
      <h1 className='font-bold text-xl text-Red text-start'>  Your Cart ({cart.length}) </h1>
@@ -48,10 +50,21 @@ const YourCart = () => {
                     </div>
                    </div>
                  ))}
-      <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center'>
       <p className='text-Rose-900 text-sm'>Order Total</p>
       <h1 className='font-bold text-2xl '>${cart.reduce((accumulator, item) => accumulator + item.price * item.amount, 0)}</h1>
     </div>
+    <div className='bg-Rose-50 flex justify-center'>
+                   <Image
+                       src="/assets/images/icon-carbon-neutral.svg"
+                       alt='icon-add-to-cart'
+                        width={16}
+                       height={16}
+                       className="icon-hover-black mr-1"
+                    /> 
+                    <p className='text-sm text-Rose-900 py-2.5 rounded'>This is a <span className='font-semibold'>carbon-neutral</span> delivery</p>
+    </div>
+    <div className='rounded-full bg-Red text-white text-sm py-2.5 cursor-pointer' onClick={() => showModal(true)}>Confirm Order</div>
         </div>
         }
    

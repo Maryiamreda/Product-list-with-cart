@@ -19,6 +19,9 @@ export type Product = {
 
 type CartContextType = {
   cart: Product[];
+  modal:boolean;
+  showModal: React.Dispatch<React.SetStateAction<boolean>>;
+
   setCart: React.Dispatch<React.SetStateAction<Product[]>>;
   addToCart: (product: Product) => void;
   increaseAmount:(product: Product) => void;
@@ -34,6 +37,8 @@ interface CartProviderProps {
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<Product[]>([]);
+    const [modal, showModal] = useState(false);
+
 
   const addToCart = (product: Product) => {
 
@@ -75,7 +80,7 @@ const decreaseAmount = (product: Product) => {
 };
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart  , decreaseAmount , increaseAmount , removeFromCart}}>
+    <CartContext.Provider value={{ cart, setCart, addToCart  , decreaseAmount , increaseAmount , removeFromCart , modal , showModal}}>
       {children}
     </CartContext.Provider>
   );
